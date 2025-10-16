@@ -406,7 +406,7 @@ This gem was created as a learning project by students at Code School of Guam to
 - Contribute to cultural preservation
 - Build portfolio-worthy projects
 
-Learn more at [codeschool.gu](https://codeschool.gu)
+Learn more at https://codeschoolofguam.com
 
 ## License
 

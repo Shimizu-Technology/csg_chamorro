@@ -6,11 +6,11 @@ Gem::Specification.new do |spec|
   spec.name          = "csg_chamorro"
   spec.version       = CSGChamorro::VERSION
   spec.authors       = ["Code School of Guam"]
-  spec.email         = ["hello@codeschool.gu"]
+  spec.email         = ["codeschoolofguam@gmail.com"]
 
   spec.summary       = "Learn Chamorro words with your Ruby projects"
   spec.description   = "A gem that provides Chamorro words of the day with pronunciations, usage, and examples. Built by Code School of Guam students to preserve and share the Chamorro language!"
-  spec.homepage      = "https://github.com/codeSchoolGuam/csg_chamorro"
+  spec.homepage      = "https://github.com/CSG-Live-July-2025/csg_chamorro"
   spec.license       = "MIT"
 
   spec.required_ruby_version = ">= 3.0"

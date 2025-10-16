@@ -748,7 +748,7 @@ csg_dad_jokes --all        # Show all jokes
 
 ## Built by Code School of Guam Students 🌴
 
-Learn more at https://codeschool.gu
+Learn more at https://codeschoolofguam.com
 ```
 
 ### Add a LICENSE file
