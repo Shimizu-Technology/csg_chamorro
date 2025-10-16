@@ -834,18 +834,40 @@ Ready to share your gem with the world?
 - ✅ Test thoroughly - no bugs!
 - ✅ Update version if needed
 
-**3. Get your API key**
+**3. Sign in and create API key**
+
+Run `gem signin` and follow the prompts:
 ```bash
 gem signin
-# Enter your rubygems.org credentials
+# Enter your RubyGems.org email/username and password
+# Give your API key a name (e.g., "CSG-RubyGems")
+# When asked "Do you want to customise scopes? [yN]"
+#   - Type "N" (easiest - we'll add permissions on the website)
+#   - OR type "Y" and manually add scopes in the terminal
 ```
 
-**4. Build your gem (if not already built)**
+**4. Add Push permissions to your API key**
+
+**⚠️ Important:** By default, the API key only has "Index" permissions. You need to add Push!
+
+1. Go to https://rubygems.org/settings/api_keys
+2. Click "Edit" on the API key you just created
+3. Under **Scopes**, check:
+   - ✅ **Push rubygem** (required to publish - don't skip this!)
+   - ✅ Index rubygems (already checked)
+   - Optional: Yank rubygem (to unpublish if needed)
+4. Click "Update API Key"
+
+**You're now ready to publish!** No need to sign in again.
+
+**💡 Note:** If you typed "Y" in step 3 and added Push permissions in the terminal, you can skip this step!
+
+**5. Build your gem (if not already built)**
 ```bash
 gem build csg_dad_jokes.gemspec
 ```
 
-**5. Push to RubyGems**
+**6. Push to RubyGems**
 ```bash
 gem push csg_dad_jokes-0.1.0.gem
 ```
@@ -856,7 +878,7 @@ Pushing gem to https://rubygems.org...
 Successfully registered gem: csg_dad_jokes (0.1.0)
 ```
 
-**6. Verify it's live**
+**7. Verify it's live**
 - Visit `https://rubygems.org/gems/your_gem_name`
 - Try installing: `gem install your_gem_name`
 

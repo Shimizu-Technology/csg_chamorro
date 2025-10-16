@@ -2,6 +2,10 @@
 
 Learn Chamorro words and phrases with your Ruby projects! A gem built by Code School of Guam students to preserve and share the Chamorro language.
 
+[![Gem Version](https://badge.fury.io/rb/csg_chamorro.svg)](https://badge.fury.io/rb/csg_chamorro)
+
+**🎉 Now published on RubyGems.org!** Install with: `gem install csg_chamorro`
+
 ## Table of Contents
 - [Why This Gem?](#why-this-gem)
 - [What's Included](#whats-included)
@@ -131,22 +135,21 @@ csg_chamorro/
 
 ## Installation
 
-> **Note:** This gem is not yet published to RubyGems.org. This is a learning/reference project.  
-> To use it, follow the "Testing Locally" section below, or publish it yourself!
-
-**If this were published to RubyGems.org, users would install it with:**
+**This gem is published on RubyGems.org!** Anyone can install it:
 
 ```bash
 gem install csg_chamorro
 ```
 
-Or add to their Gemfile:
+Or add to your Gemfile:
 
 ```ruby
 gem 'csg_chamorro'
 ```
 
-**Want to publish it?** See the "Publishing to RubyGems.org" section at the bottom!
+Then run `bundle install`.
+
+> **📝 Note for students:** This reference gem is already published, so you can install it right away! However, when you create YOUR own gem, it won't be installable via `gem install` until you publish it to RubyGems.org (see "Publishing" section below). Until then, test it locally using the "Testing Locally" section!
 
 ---
 
@@ -220,7 +223,7 @@ csg_chamorro --help
 
 ## Examples
 
-### Daily Motivation Bot
+### Terminal Greeting
 
 ```ruby
 require 'csg_chamorro'
@@ -267,12 +270,16 @@ Want to test this gem before installing? Here's how:
 # Navigate to the gem folder
 cd csg_chamorro
 
-# Open IRB and load the gem
-irb -r ./lib/csg_chamorro.rb
+# Open IRB
+irb
 ```
 
-Then test the methods:
+Then load and test the gem:
 ```ruby
+# Load the gem
+require './lib/csg_chamorro'
+
+# Test the methods
 CSGChamorro.word_of_day
 CSGChamorro.pretty
 CSGChamorro.search("hello")
@@ -360,19 +367,41 @@ Want to share this gem with the world? Here's how to publish it:
 - Sign up (it's free!)
 - Verify your email
 
-### Step 2: Get Your API Key
+### Step 2: Sign In and Create API Key
+
+Run `gem signin` and follow the prompts:
 ```bash
 gem signin
-# Enter your rubygems.org credentials
+# Enter your RubyGems.org credentials
+# Give your API key a name (e.g., "CSG-RubyGems")
+# When asked "Do you want to customise scopes? [yN]"
+#   - Type "N" (easiest - we'll add permissions on the website)
+#   - OR type "Y" and manually add scopes in the terminal
 ```
 
-### Step 3: Build Your Gem
+### Step 3: Add Push Permissions to Your API Key
+
+**Important:** By default, the API key only has "Index" permissions. You need to add Push!
+
+1. Go to https://rubygems.org/settings/api_keys
+2. Click "Edit" on the API key you just created
+3. Under **Scopes**, check:
+   - ✅ **Push rubygem** (required to publish - this is the one you need!)
+   - ✅ Index rubygems (already checked)
+   - Optional: Yank rubygem (to unpublish if needed)
+4. Click "Update API Key"
+
+**You're now ready to publish!** No need to sign in again.
+
+**💡 Note:** If you typed "Y" in step 2 and added Push permissions in the terminal, you can skip this step!
+
+### Step 4: Build Your Gem
 ```bash
 gem build csg_chamorro.gemspec
 # Creates: csg_chamorro-0.1.0.gem
 ```
 
-### Step 4: Push to RubyGems
+### Step 5: Push to RubyGems
 ```bash
 gem push csg_chamorro-0.1.0.gem
 ```
@@ -383,7 +412,7 @@ Pushing gem to https://rubygems.org...
 Successfully registered gem: csg_chamorro (0.1.0)
 ```
 
-### Step 5: Verify It's Live
+### Step 6: Verify It's Live
 - Visit `https://rubygems.org/gems/csg_chamorro`
 - Try installing: `gem install csg_chamorro`
 
