@@ -1,0 +1,93 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require "optparse"
+require_relative "../lib/csg_chamorro"
+
+# Hash to store which options the user selected
+options = {}
+
+# OptionParser reads the command-line flags
+OptionParser.new do |opts|
+  opts.banner = "Usage: csg_chamorro [options]"
+  
+  # --pretty flag: show formatted output
+  opts.on("--pretty", "Print a nicely formatted word") do
+    options[:pretty] = true
+  end
+  
+  # --all flag: list all words
+  opts.on("--all", "Show all Chamorro words") do
+    options[:all] = true
+  end
+  
+  # --count flag: show total number of words
+  opts.on("--count", "Show total number of words") do
+    options[:count] = true
+  end
+  
+  # --greeting flag: show a random greeting
+  opts.on("--greeting", "Get a random Chamorro greeting") do
+    options[:greeting] = true
+  end
+  
+  # --search flag: search for a word (takes an argument)
+  opts.on("--search TERM", "Search for a word by Chamorro or English") do |term|
+    options[:search] = term
+  end
+  
+  # -h or --help flag: show help
+  opts.on("-h", "--help", "Show this help message") do
+    puts opts
+    exit
+  end
+end.parse!
+
+# Determine which command to run based on the flags
+if options[:all]
+  # Show all words with their pronunciations
+  puts "\n📚 All Chamorro Words (#{CSGChamorro.count} total):\n"
+  CSGChamorro.all_words.each_with_index do |word, i|
+    puts "\n#{i + 1}. #{word[:chamorro]} - #{word[:english]}"
+    puts "   Pronunciation: #{word[:pronunciation]}"
+  end
+  puts
+
+elsif options[:count]
+  # Just show the count
+  puts "Total Chamorro words: #{CSGChamorro.count}"
+
+elsif options[:greeting]
+  # Show a random greeting
+  greeting = CSGChamorro.random_greeting
+  puts "\n🌴 Chamorro Greeting:\n"
+  puts "#{greeting[:chamorro]} - #{greeting[:english]}"
+  puts "Pronunciation: #{greeting[:pronunciation]}"
+  puts "Example: #{greeting[:example]}\n\n"
+
+elsif options[:search]
+  # Search for matching words
+  results = CSGChamorro.search(options[:search])
+  
+  if results.empty?
+    puts "\nNo words found matching '#{options[:search]}'"
+  else
+    puts "\n🔍 Found #{results.length} word(s):\n"
+    results.each do |word|
+      puts "\n#{word[:chamorro]} - #{word[:english]}"
+      puts "Pronunciation: #{word[:pronunciation]}"
+      puts "Example: #{word[:example]}"
+    end
+    puts
+  end
+
+elsif options[:pretty]
+  # Show formatted word of the day
+  puts CSGChamorro.pretty
+
+else
+  # Default: simple word of the day (just the word)
+  word = CSGChamorro.word_of_day
+  puts "#{word[:chamorro]} - #{word[:english]}"
+end
+

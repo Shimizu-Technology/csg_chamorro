@@ -1,0 +1,20 @@
+PATH
+  remote: .
+  specs:
+    csg_chamorro (0.1.0)
+      json
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    json (2.15.1)
+
+PLATFORMS
+  arm64-darwin-24
+  ruby
+
+DEPENDENCIES
+  csg_chamorro!
+
+BUNDLED WITH
+   2.7.1
