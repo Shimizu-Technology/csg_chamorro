@@ -342,12 +342,69 @@ gem install ./csg_chamorro-0.1.0.gem
 
 ## Contributing
 
-We welcome contributions! To add more Chamorro words:
+We welcome contributions from everyone! Whether you're a student, a Chamorro language speaker, or just someone interested in preserving indigenous languages, your help is appreciated! 🌴
 
+### Ways to Contribute:
+
+#### 1. Add More Chamorro Words
+
+We currently have 12 words, but there are so many more to share! 
+
+**How to add words:**
 1. Fork the repository
-2. Add words to `WORDS` array in `lib/csg_chamorro.rb`
-3. Follow the existing format (chamorro, english, pronunciation, usage, example)
-4. Submit a pull request
+2. Open `lib/csg_chamorro.rb`
+3. Add a new word to the `WORDS` array following this format:
+   ```ruby
+   {
+     chamorro: "Your Chamorro word",
+     english: "English translation",
+     pronunciation: "how-to-say-it",
+     usage: "When and how it's used",
+     example: "Example sentence showing usage"
+   }
+   ```
+4. Submit a pull request with your changes!
+
+**Ideas for words to add:**
+- Common greetings and phrases
+- Family terms (siblings, grandparents, etc.)
+- Numbers (one, two, three...)
+- Days of the week
+- Food and cooking terms
+- Nature and animals
+- Actions and verbs
+
+#### 2. Improve Pronunciations
+
+Help make our pronunciation guides clearer! If you're a native speaker or have better phonetic knowledge, we'd love your input.
+
+#### 3. Add Tests
+
+Help us ensure accuracy by adding more test cases in `test/csg_chamorro_test.rb`.
+
+#### 4. Fix Typos or Errors
+
+Found a mistake in spelling, pronunciation, or usage? Please let us know or submit a fix!
+
+#### 5. Share Ideas
+
+Open an issue to suggest:
+- New features (search by category, difficulty levels, etc.)
+- Additional word metadata (parts of speech, cultural context)
+- Better examples or usage explanations
+- Integration ideas
+
+### Contribution Guidelines:
+
+- **Be respectful** of the Chamorro language and culture
+- **Verify accuracy** - if you're not sure about a word, ask or provide sources
+- **Follow the existing format** to keep the gem consistent
+- **Test your changes** before submitting
+- **Write clear commit messages** (e.g., "Add 5 new family-related words")
+
+### Questions?
+
+Not sure how to contribute? Open an issue and ask! We're here to help and appreciate all levels of contribution. **Si Yu'os Ma'åse'** (Thank you!) for helping preserve the Chamorro language! 🌴
 
 ## About Chamorro Language
 
